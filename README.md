@@ -1,5 +1,7 @@
 # TickerView
 
+[![](https://jitpack.io/v/Vinayrraj/TickerView.svg)](https://jitpack.io/#Vinayrraj/TickerView)
+
 What is TickerView?
 ===============
 TickerView is a simple Android UI component for displaying horizontally scrolling Views placed inside this TickerView. For reference you may see how MoneyControl Tablet (https://play.google.com/store/apps/details?id=com.moneycontrol, shows stock price in scrolling view at the bottom of screen) and Phone app shows the Stock prices. The TickerView scrolls child views with smooth animation.
@@ -8,9 +10,20 @@ Getting started
 
 ---------------
 
+Add it in your root `build.gradle` at the end of repositories:
+```groovy
+allprojects {
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+
 Add the ticker dependency to your `build.gradle`.
 ```groovy
-implementation 'com.vinay.ticker.lib:tickerview:0.1-alpha'
+dependencies {
+	implementation 'com.github.Vinayrraj:TickerView:v0.1-alpha'
+}
 ```
 
 Usage
