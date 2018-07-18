@@ -1,16 +1,39 @@
 # TickerView
 
+[![](https://jitpack.io/v/Vinayrraj/TickerView.svg)](https://jitpack.io/#Vinayrraj/TickerView)
+
 What is TickerView?
 ===============
-TickerView is a simple Android UI component for displaying horizontally scrolling Views placed inside this TickerView. For reference you may see how MoneyControl Tablet (https://play.google.com/store/apps/details?id=com.moneycontrol, shows stock price in scrolling view at the bottom of screen) and Phone app shows the Stock prices. The TickerView scrolls child views with smooth animation.
+TickerView is a simple Android UI component for displaying horizontally scrolling Views placed inside this TickerView. For reference you may see how [MoneyControl Tablet](https://play.google.com/store/apps/details?id=com.moneycontrol) (shows stock price in scrolling view at the bottom of screen) and Phone app shows the Stock prices. The TickerView scrolls child views with smooth animation.
+
+
+![Wait for the GIF image to load](/media/image_gif.gif)
+
 
 Getting started
 
 ---------------
 
-Add the ticker dependency to your `build.gradle`.
+Add it in your root `build.gradle` at the end of repositories:
+
 ```groovy
-implementation 'com.vinay.ticker.lib:tickerview:0.1-alpha'
+
+allprojects {
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
+}
+
+```
+
+Add the ticker dependency to your `build.gradle`.
+
+```groovy
+
+dependencies {
+	implementation 'com.github.Vinayrraj:TickerView:v0.1-alpha'
+}
+
 ```
 
 Usage
@@ -52,4 +75,12 @@ tickerView.showTickers();
 
 ```
 
+
+
+Documentation
+-----
+
+Usage Documentation: [https://vinayrraj.github.io/TickerView/](https://vinayrraj.github.io/TickerView/) , 
+
+Javadoc for the library can be viewed at: [https://vinayrraj.github.io/TickerView/java-docs/](https://vinayrraj.github.io/TickerView/java-docs/)
 
