@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ticker</string>
+    <string name="ticker_speed_controller">Ticker Speed Controller:</string>
 </resources>

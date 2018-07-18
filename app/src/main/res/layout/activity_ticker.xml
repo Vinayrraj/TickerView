@@ -5,16 +5,24 @@
     android:layout_height="match_parent"
     tools:context=".TickerActivity">
 
+
+    <TextView
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/speedSeekView"
+        android:text="@string/ticker_speed_controller" />
+
     <SeekBar
         android:id="@+id/speedSeekView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/tickerView"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="36dp"
         android:max="100"
         android:min="1" />
 
-    <com.vinay.ticker.TickerView
+    <com.vinay.ticker.lib.TickerView
         android:id="@+id/tickerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

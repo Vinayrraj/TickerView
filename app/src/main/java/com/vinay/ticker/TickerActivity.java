@@ -4,14 +4,12 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.vinay.ticker.lib.TickerView;
 
 public class TickerActivity extends AppCompatActivity {
 

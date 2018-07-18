@@ -1,4 +1,4 @@
-package com.vinay.ticker;
+package com.vinay.ticker.lib;
 
 import android.app.Activity;
 import android.content.Context;
