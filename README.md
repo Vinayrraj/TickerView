@@ -93,3 +93,9 @@ Once Views are added to the TickerView, we set the left Margin for the First Vie
 Additionally, we have added a Marker View as the last view on the list, so that as soon as that view's Rect bounds (with width and height equal to the width and height of parent) intersects with the Rect object of the last Marker View. As soon as this contition is met, we reset the position of scroll and the auto scrolling starts back from the first View. 
 
 Now to Automate the Scrolling process, we have created a Timer (which runs TimerTask) which schedule the movement/displacement given by the getDisplacement() method and the process continues till the view is detatched from windlow. 
+
+
+Credits
+-----
+vinayrraj@gmail.com
+[https://twitter.com/vinayrraj](https://twitter.com/vinayrraj)
