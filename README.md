@@ -10,6 +10,10 @@ Live Demo
 ---------------
 Google Play Store: [https://play.google.com/store/apps/details?id=com.vinay.ticker](https://play.google.com/store/apps/details?id=com.vinay.ticker) 
 
+
+GIF
+---------------
+
 ![Wait for the GIF image to load](/media/image_gif.gif)
 
 
