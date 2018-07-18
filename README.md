@@ -7,7 +7,7 @@ What is TickerView?
 TickerView is a simple Android UI component for displaying horizontally scrolling Views placed inside this TickerView. For reference you may see how MoneyControl Tablet (https://play.google.com/store/apps/details?id=com.moneycontrol, shows stock price in scrolling view at the bottom of screen) and Phone app shows the Stock prices. The TickerView scrolls child views with smooth animation.
 
 
-![Alt Text](/media/image_gif.gif)
+![Wait for the GIF image to load](/media/image_gif.gif)
 
 
 Getting started
