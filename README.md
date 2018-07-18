@@ -78,5 +78,5 @@ tickerView.showTickers();
 
 Usage
 -----
-
-Javadoc for the library can be viewed at: 
+Usage Documentation: https://vinayrraj.github.io/TickerView/
+Javadoc for the library can be viewed at: https://vinayrraj.github.io/TickerView/java-docs/
