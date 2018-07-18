@@ -80,7 +80,7 @@ tickerView.showTickers();
 Documentation
 -----
 
-Usage Documentation: [https://vinayrraj.github.io/TickerView/](https://vinayrraj.github.io/TickerView/)
+Usage Documentation: [https://vinayrraj.github.io/TickerView/](https://vinayrraj.github.io/TickerView/) , 
 
 Javadoc for the library can be viewed at: [https://vinayrraj.github.io/TickerView/java-docs/](https://vinayrraj.github.io/TickerView/java-docs/)
 
