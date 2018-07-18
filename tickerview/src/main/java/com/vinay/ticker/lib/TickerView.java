@@ -111,7 +111,7 @@ public class TickerView extends HorizontalScrollView {
     /**
      * This method is used to set the variable speed of displacement of auto-scrolling of views.
      *
-     * @param displacement
+     * @param displacement value by which the auto-scrolling displacement occurs
      */
     public void setDisplacement(int displacement) {
         this.displacement = (int) Math.ceil((displacement) * 5.0 / 100.0);
@@ -121,7 +121,7 @@ public class TickerView extends HorizontalScrollView {
     /**
      * Saves the views collection to be plotted in the ticker view.
      *
-     * @param childViews
+     * @param childViews {@code List<View>} which contains all the views to be added into the {@code TickerView}
      */
     public void setChildViews(List<View> childViews) {
         this.childViews = childViews;
@@ -130,7 +130,7 @@ public class TickerView extends HorizontalScrollView {
     /**
      * User may individually add views to be shown into the {@code TickerView}
      *
-     * @param childView
+     * @param childView {@code View} to be added as child to the {@code TickerView}.
      */
     public void addChildView(View childView) {
         if (childViews == null) {
