@@ -37,7 +37,9 @@ public class TickerView extends HorizontalScrollView {
     private TextView lastTicker;
     private List<View> childViews = null;
     private LinearLayout linearLayout;
-
+    private Integer replays;
+    private Integer nextLoop = 2;
+    private boolean replaysCompleted = false;
 
     public TickerView(Context context) {
         super(context);
@@ -61,6 +63,13 @@ public class TickerView extends HorizontalScrollView {
     }
 
     /**
+     * Use this method to set the number of times the tickerView/scolling all messages should happen
+     */
+    public void setReplays(Integer replays) {
+        this.replays = replays;
+    }
+
+    /**
      * If the views are added to the container view, the tickers start showing up. This method calls {@code showTickers()}
      */
     @Override
@@ -77,7 +86,6 @@ public class TickerView extends HorizontalScrollView {
         destroyAllScheduledTasks();
         super.onDetachedFromWindow();
     }
-
 
     /**
      * This method initialized the View container by adding a horizontal {@code LinearLayout} onside the root view.
@@ -117,7 +125,6 @@ public class TickerView extends HorizontalScrollView {
         this.displacement = (int) Math.ceil((displacement) * 5.0 / 100.0);
     }
 
-
     /**
      * Saves the views collection to be plotted in the ticker view.
      *
@@ -149,6 +156,7 @@ public class TickerView extends HorizontalScrollView {
      * 5. We add {@code ViewTreeObserver.OnGlobalLayoutListener} to intercept changes in global layout and start auto scrolling by calling {@code startAutoScrolling()} method.
      */
     public void showTickers() {
+        replaysCompleted = false;
         if (linearLayout != null) {
             linearLayout.removeAllViews();
         }
@@ -237,29 +245,43 @@ public class TickerView extends HorizontalScrollView {
      * <p>
      * The logic in place is to get a {@code Rect} and set it for custom last marker ticker(invisible). An additional {@code Rect} object is created whose horizontal bounds are
      * for how much the view has scrolled added to its width. Once we have both of these objects, we simply check if the {@code Rect}object for last custom ticker view (invisible)
-     * intersects with  the current screen {@code Rect} object, as soon as the condition is met, which means the last hidden view has scrolled on to the screen, which in tern means all the ticker items have been shown, we set the scroll position to 0 again,, and the scrolling starts from the first Tivker view again.
+     * intersects with  the current screen {@code Rect} object, as soon as the condition is met, which means the last hidden view has scrolled on to the screen, which in tern means all the ticker items have been shown, we set the scroll position to 0 again,, and the scrolling starts from the first Ticker view again.
      */
     public void moveScrollView() {
-
         try {
-            scrollPos = (int) (getScrollX() + displacement);
+            if(!replaysCompleted) {
+                boolean continuing = scrollPos == -1;
+                scrollPos = continuing ? 0 : (int) (getScrollX() + displacement);
+                final Rect bounds = new Rect();
+                lastTicker.getHitRect(bounds);
 
-            final Rect bounds = new Rect();
-            lastTicker.getHitRect(bounds);
+                final Rect scrollBounds = new Rect(getScrollX(), getScrollY(), getScrollX()
+                        + getWidth(), getScrollY() + getHeight());
 
-            final Rect scrollBounds = new Rect(getScrollX(), getScrollY(), getScrollX()
-                    + getWidth(), getScrollY() + getHeight());
-
-            if (Rect.intersects(scrollBounds, bounds)) {
-                // is visible
-                scrollPos = 0;
-                scrollTo(scrollPos, 0);
-            } else {
-                smoothScrollTo(scrollPos, 0);
+                if (Rect.intersects(scrollBounds, bounds)) {
+                    if(continuing) {
+                        nextLoop = 2;
+                        restartScroll();
+                    } else if(replays != null && nextLoop > replays) {//last replay
+                        replaysCompleted = true;
+                        scrollPos = -1;// sets a tracker the picking up a next call after a former replays end
+                    } else {
+                        nextLoop++;
+                        restartScroll();
+                    }
+                } else {
+                    smoothScrollTo(scrollPos, 0);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void restartScroll() {
+        // is visible
+        scrollPos = 0;
+        scrollTo(scrollPos, 0);
     }
 
     /**
