@@ -147,6 +147,13 @@ public class TickerView extends HorizontalScrollView {
     }
 
     /**
+     * 
+     */
+    public void removeChildViews() {
+        this.childViews = null;
+    }
+
+    /**
      * This method to show the child views added by {@code addChildView()} or {@code setChildViews(List<View> childViews)} methods.
      * Method Details:
      * 1. This method first removes any older child views already shown inside the {@code TickerView}
