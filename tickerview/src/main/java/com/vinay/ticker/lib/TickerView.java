@@ -38,7 +38,7 @@ public class TickerView extends HorizontalScrollView {
     private List<View> childViews = null;
     private LinearLayout linearLayout;
     private Integer replays;
-    private Integer nextLoop = 2;
+    private Integer loop = 1;
     private boolean replaysCompleted = false;
 
     public TickerView(Context context) {
@@ -267,14 +267,14 @@ public class TickerView extends HorizontalScrollView {
 
                 if (Rect.intersects(scrollBounds, bounds)) {
                     if(continuing) {
-                        nextLoop = 2;
+                        loop = 1;
                         restartScroll();
-                    } else if(replays != null && nextLoop > replays) {//last replay
+                    } else if(replays >= loop) {
+                        loop++;
+                        restartScroll();
+                    } else {
                         replaysCompleted = true;
                         scrollPos = -1;// sets a tracker the picking up a next call after a former replays end
-                    } else {
-                        nextLoop++;
-                        restartScroll();
                     }
                 } else {
                     smoothScrollTo(scrollPos, 0);
