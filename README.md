@@ -76,6 +76,12 @@ for (int index = 0; index < 50; index++) {
 	tickerView.addChildView(tv);
 }
 
+// Call setReplays(replays) to set numper of times to loop/scroll entire messages
+tickerView.setReplays(replays) 
+
+// Call removeChildViews to remove all child views
+tickerView.removeChildViews()
+
 // Call the showTickers() to show them on the screen
 tickerView.showTickers();
 
